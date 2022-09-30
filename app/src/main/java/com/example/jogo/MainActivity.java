@@ -1,15 +1,22 @@
 package com.example.jogo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private List<Resultados> listaResultados = new ArrayList<>();
 
     private String opcaSelecionada;
     private String opcaoSelecionada;
@@ -36,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void opcaoSelecionada(String opcaSelecionada){
 
         ImageView imageResultado = findViewById(R.id.imageResultado);
-        TextView textResultado = findViewById(R.id.textResultado)
+        TextView textResultado = findViewById(R.id.textResultado);
 
         int numero = new Random().nextInt(3);
         String[] opçoes = { "Pedra", "Papel", "Tesoura"};
@@ -80,6 +87,36 @@ public class MainActivity extends AppCompatActivity {
         {
             textResultado.setText("Você empatou");
         }
+
+
+        recyclerView = findViewById(R.id.recycleView);
+
+        //criar  resultados
+        this.criarResultados();
+
+
+        //config adapter
+        adapter adapter = new adapter();
+
+
+
+
+        //layout manager
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+
+        //adapter
+
+        //dataset
+    }
+
+    public void criarResultados(){
+
+        String textResultado;
+        Resultados resultado = new Resultados(textResultado);
+        listaResultados.add(resultado);
     }
 
 }
