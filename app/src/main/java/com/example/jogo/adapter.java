@@ -24,7 +24,7 @@ public class adapter extends RecyclerView.Adapter<adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.Resultado.setText();
+        holder.Resultado.setText(position);
         holder.moeda.setImageResource(R.id.imageMoeda);
 
     }

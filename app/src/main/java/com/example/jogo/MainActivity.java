@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void selecionadoPedra(View view){
-        this.opcaoSelecionada(opcaSelecionada "Pedra");
+        this.opcaoSelecionada(opcaSelecionada, "pedra");
     }
 
     public void selecionadoPapel(View view){
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void selecionadoTesoura(View view){
-        this.opcaoSelecionada(opcaSelecionada "Tesoura");
+        this.opcaoSelecionada(opcaSelecionada,"Tesoura");
 
     }
 
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         TextView textResultado = findViewById(R.id.textResultado);
 
         int numero = new Random().nextInt(3);
-        String[] opçoes = { "Pedra", "Papel", "Tesoura"};
-        String opcaoApp = opçoes[numero];
+        String[] opcoes = { "pedra", "Papel", "Tesoura"};
+        String opcaoApp = opcoes[numero];
 
         switch (opcaoApp){
 
